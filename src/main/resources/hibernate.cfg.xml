@@ -1,0 +1,24 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/Employee_chief</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">mariSQL66441</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
+
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.mariia.domain.Employee" />
+        <mapping class="com.mariia.domain.Chief" />
+
+<!--        <mapping resource="entities/Student.hdm.xml" /> />-->
+        <!--        <mapping class="com.mariia.entities.Student" />-->
+        <!--        <mapping class="com.mariia.entities.Person" />-->
+        <!--        <mapping resource="entities/Book.hdm.xml" />-->
+        <!--        <mapping class="com.mariia.entities.HomeAddress" />-->
+<!--        <mapping class="com.mariia.entities.hierarchies.Car" />-->
+        <!--        <mapping class="com.mariia.entities.hierarchies.Opel" />-->
+        <!--        <mapping class="com.mariia.entities.hierarchies.Toyota" />-->
+
+    </session-factory>
+</hibernate-configuration>
