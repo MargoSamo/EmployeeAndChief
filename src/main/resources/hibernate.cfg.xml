@@ -7,9 +7,10 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
 
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">update</property>
+<!--        <property name="hbm2ddl.auto">update</property>-->
         <mapping class="com.mariia.domain.Employee" />
         <mapping class="com.mariia.domain.Chief" />
+        <mapping class="com.mariia.domain.Worktime" />
 
 <!--        <mapping resource="entities/Student.hdm.xml" /> />-->
         <!--        <mapping class="com.mariia.entities.Student" />-->

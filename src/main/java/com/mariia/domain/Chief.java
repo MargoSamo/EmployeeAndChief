@@ -1,16 +1,17 @@
 package com.mariia.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
-public class Employee {
+public class Chief {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+    @OneToMany(mappedBy = "chief")
+    private List<Employee> employee;
 
     public int getId() {
         return id;
@@ -26,5 +27,14 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Chief{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", employee=" + employee +
+                '}';
     }
 }
