@@ -1,6 +1,6 @@
 package com.mariia.domain;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +15,21 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<Worktime> worktime;
 
+    public Chief getChief() {
+        return chief;
+    }
+
+    public void setChief(Chief chief) {
+        this.chief = chief;
+    }
+
+    public List<Worktime> getWorktime() {
+        return worktime;
+    }
+
+    public void setWorktime(List<Worktime> worktime) {
+        this.worktime = worktime;
+    }
 
     public int getId() {
         return id;
