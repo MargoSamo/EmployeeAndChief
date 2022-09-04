@@ -1,33 +1,24 @@
 package com.mariia.domain;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.List;
 import java.util.Scanner;
 
 
 public class Main {
+    private static final Logger log = LoggerFactory.getLogger(Main.class.getName());
     public static void main(String[] args) {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         try (SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-
-             Chief load = session.load(Chief.class, 1);
-             Employee get = session.get(Employee.class, 1);
-            System.out.println(get.getName());
-            System.out.println(load.getName());
-
-           /* Query query = session.createQuery("from Worktime where the_date='2022-08-01'");
-            List<Worktime> list = query.list();
-            System.out.println(list);
-*/
+            executeOperations(session);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,6 +28,10 @@ public class Main {
 
         }
 
+
+    }
+
+    private static void executeOperations(Session session) {
         Scanner console = new Scanner(System.in);
 
         System.out.println("Enter command:\n" +
@@ -50,7 +45,8 @@ public class Main {
 
             switch (userInput) {
                 case "c":
-                    System.out.println(1);
+                    log.info("Create user menu");
+                    createUser(console, session);
                     break;
                 case "g":
                     System.out.println(2);
@@ -66,6 +62,41 @@ public class Main {
                     break;
             }
 
+        }
+    }
+
+    private static void createUser(Scanner console, Session session) {
+        System.out.println("Enter the name");
+        var name = console.next();
+        Employee foundEmployee = getEmployee(session, name);
+        log.info("Employee {}", foundEmployee);
+        if (foundEmployee == null) {
+            createUserInDb(name, session);
+        } else {
+            System.out.println("Wrong name, try one more time");
+            createUser(console, session);
+            log.info("User created successfully");
+        }
+    }
+
+    private static void createUserInDb(String name, Session session) {
+        Chief chief = session.get(Chief.class, 1);
+        Employee newEmployee = new Employee();
+        newEmployee.setChief(chief);
+        newEmployee.setName(name);
+        session.persist(newEmployee);
+    }
+
+    private static Employee getEmployee(Session session, String name) {
+        var query = session.createQuery("From Employee E where E.name = :name", Employee.class);
+        query.setParameter("name", name);
+        var result = query.getResultList();
+        if (result.size() == 1) {
+            return result.get(0);
+        } else if (result.size() > 1)  {
+            throw new MoreThanOneUserException("More than one user with name " + name);
+        } else  {
+            return null;
         }
     }
 }

@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c98ebce2-5436-4db1-b930-e8634e9243ac" name="Changes" comment="input console">
-      <change afterPath="$PROJECT_DIR$/.$SequenceDiagram.drawio.bkp" afterDir="false" />
+    <list default="true" id="c98ebce2-5436-4db1-b930-e8634e9243ac" name="Changes" comment="new dependencies with gradle">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mariia/domain/MoreThanOneUserException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SequenceDiagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/SequenceDiagram.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Chief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Chief.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Worktime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mariia/domain/Worktime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662213334281</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new dependencies with gradle">
+      <created>1662304937587</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662304937587</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +248,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="input console" />
-    <option name="LAST_COMMIT_MESSAGE" value="input console" />
+    <MESSAGE value="new dependencies with gradle" />
+    <option name="LAST_COMMIT_MESSAGE" value="new dependencies with gradle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
